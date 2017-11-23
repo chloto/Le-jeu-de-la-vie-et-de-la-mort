@@ -33,5 +33,32 @@ void init_grille(struct grille_cell &jeu)
        }
     }
 }
+void place_cell_vivantes (struct grille_cell &jeu)
+{
+    int i,c,l;
+    for (i=0;i<jeu.nb_viv;i++)
+    {
+        do
+        {
+            l=rand()%jeu.tx+1;
+            c=rand()%jeu.ty+1;
+        }
+        while(jeu.etat[l][c]!=0);
+        jeu.etat[l][c]=1;
+    }
+}
+
+void affiche_grille (struct grille_cell jeu)
+{
+    int i,j;
+    for(i=1;i<=jeu.tx;i++)
+    {
+       for(j=1;j<=jeu.ty;j++)
+       {
+           cout<<jeu.etat[i][j]<<" ";
+       }cout<<endl;
+    }
+    cout<<endl;
+}
 
 
